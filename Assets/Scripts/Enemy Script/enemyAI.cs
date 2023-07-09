@@ -32,18 +32,22 @@ public class enemyAI : MonoBehaviour , IDamageable
     private void find_close_players()
     {
         float min_follow_distance = 5f;
-        
-        GameObject closePlayer = null; 
+
+        GameObject closePlayer = null;
 
         foreach (GameObject player in players) // olusturdugumuz gameobject turundeki arrayde playerlara tek tek bakıyoruz 
         {
-            float distance_to_player = Vector3.Distance(transform.position, player.transform.position); // player ile enemy arasindaki mesafeye bakiyoruz
-            if (distance_to_player < min_follow_distance)
+            if (player != null)
             {
-                min_follow_distance = distance_to_player; 
-                closePlayer = player; // yakindaki oyuncu bulundu
+                float distance_to_player = Vector3.Distance(transform.position, player.transform.position); // player ile enemy arasindaki mesafeye bakiyoruz
+                if (distance_to_player < min_follow_distance)
+                {
+                    min_follow_distance = distance_to_player;
+                    closePlayer = player; // yakindaki oyuncu bulundu
 
+                }
             }
+          
         }
 
         if (closePlayer != null && min_follow_distance <= max_follow_distance)
@@ -52,9 +56,12 @@ public class enemyAI : MonoBehaviour , IDamageable
         }
         else
         {
-            target=null; // takibi birak
+            target = null; // takibi birak
         }
+
+
     }
+
 
     private void move_to_target()
     {
