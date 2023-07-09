@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class Timer : MonoBehaviour
 {
-    TextMeshProUGUI time,players;
+    TextMeshProUGUI time, players, score;
     int x;
     public float timeRemaining = 59;
     public bool timerIsRunning = false;
@@ -22,7 +22,8 @@ public class Timer : MonoBehaviour
         time.text = timeRemaining.ToString();
 
         players= GameObject.Find("Canvas/Players/players").GetComponent<TextMeshProUGUI>();
-
+        score = GameObject.Find("Canvas/skor/score").GetComponent<TextMeshProUGUI>();
+        score.text = 0.ToString();
         totalObjectsOnGround = CountObjectsOnGround(); //oyun başlarken zemindeki total obje sayısı
         objectsonGround = totalObjectsOnGround;
         players.text=objectsonGround.ToString();

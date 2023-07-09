@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CoinText : MonoBehaviour
 {
     TextMeshProUGUI text;
-    public static int coinAmount;
+    public  int coinAmount;
     void Start()
     {
         text = GetComponent<TextMeshProUGUI>();

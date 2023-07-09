@@ -5,7 +5,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     public GameObject coin;
-    
+    public CoinText coinText;
     public Vector3 spawnRange;
     private int maxCoinCount = 5;
     void Start()
@@ -35,7 +35,7 @@ public class Coin : MonoBehaviour
         if(other.tag=="Player")
         {
             //coin player ile temas ettiğinde score artacak ve coin silinecek
-            CoinText.coinAmount += 10; 
+            coinText.coinAmount += 10; 
             Destroy(gameObject);
         }
     }
